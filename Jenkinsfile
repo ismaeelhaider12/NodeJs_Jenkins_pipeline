@@ -19,7 +19,7 @@ pipeline {
             
     stage('Deploy') {
       steps {
-        sh "echo successfully created"
+        sh "echo successsfully created"
       }
     }
   }
