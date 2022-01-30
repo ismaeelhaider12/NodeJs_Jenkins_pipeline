@@ -21,7 +21,7 @@ pipeline {
       steps {
         sh "echo succsessszfully created"
         sh "whoami"
-        sh "ssh -i '/home/ubuntu/.ssh/key.pem' ubuntu@3.84.55.80"
+        sh "sudo ssh -i '/home/ubuntu/.ssh/key.pem' ubuntu@3.84.55.80"
       }
     }
   }
