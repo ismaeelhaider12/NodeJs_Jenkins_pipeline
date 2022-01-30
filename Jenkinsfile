@@ -20,7 +20,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh "echo succsessszfully created"
-        sh " echo /home/ubuntu/key.pem"
+        echo /home/ubuntu/key.pem
         sh " echo 'Some Text' | ssh -i '/home/ubuntu/key.pem' ubuntu@3.84.55.80 -T 'cat > /remotefile.txt' "
       }
     }
