@@ -22,7 +22,7 @@ pipeline {
             
     stage('Deploy') {
       steps {
-        sh "echo succsessszfully created"
+        sh "echo succsessszsfully created"
         sh "whoami"
         sh "ls -la"
         sh "scp -i $ssh_K Node.tar.gz  ubuntu@3.84.55.80:/home/ubuntu/"
