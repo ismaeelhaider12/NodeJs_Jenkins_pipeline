@@ -22,7 +22,7 @@ pipeline {
         sh "echo succsessszfully created"
         sh "whoami"
         sh "ls -la"
-        sh "ssh -i 'key.pem' ubuntu@3.84.55.80"
+        sh "ssh -tt -i 'key.pem' ubuntu@3.84.55.80"
       }
     }
   }
