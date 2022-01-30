@@ -28,6 +28,7 @@ pipeline {
         sh " echo 'ismaeel haider Text' | ssh -o 'StrictHostKeyChecking no' -i $ssshke  ubuntu@44.201.172.55 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
         sh "ssh -o 'StrictHostKeyChecking no' -i $ssshke  ubuntu@44.201.172.55 < command.txt"
         sh " scp -i  $ssshke Node.tar.gz  ubuntu@44.201.172.55:/home/ubuntu/node-app/"
+        sh "ssh -o 'StrictHostKeyChecking no' -i $ssshke  ubuntu@44.201.172.55 < startNode.txt"
         
       }
     }
