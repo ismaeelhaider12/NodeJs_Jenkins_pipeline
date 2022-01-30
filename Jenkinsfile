@@ -22,7 +22,7 @@ pipeline {
         sh "echo succsessszfully created"
         sh "whoami"
         sh "ls -la"
-        sh "scp Node.tar.gz -i '/home/ubuntu/key.pem' ubuntu@3.84.55.80:/home/ubuntu"
+        sh "ssh -i '/home/ubuntu/key.pem' ubuntu@3.84.55.80:/home/ubuntu"
       }
     }
   }
