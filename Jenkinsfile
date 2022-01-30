@@ -25,8 +25,7 @@ pipeline {
         sh "echo succsessszsfully created"
         sh "whoami"
         sh "ls -la"
-        sh " scp -i  '/home/ubuntu/key.pem' Node.tar.gz  ubuntu@3.84.55.80:/home/ubuntu/"
-        sh " echo 'Some Text' | ssh -i '/home/ubuntu/key.pem' ubuntu@3.84.55.80 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
+        sh " echo 'Some Text' | ssh -i ssh_k ubuntu@3.84.55.80 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
       }
     }
   }
