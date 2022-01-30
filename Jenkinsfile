@@ -25,7 +25,7 @@ pipeline {
         sh "echo succsessszssfully created"
         sh "whoami"
         sh "ls -la"
-        sh " scp -o 'StrictHostKeyChecking no' -i  $ssh_K Node.tar.gz  ubuntu@3.84.55.80:/home/ubuntu/"
+        sh " scp -o 'StrictHostKeyChecking no' -i  $ssshke Node.tar.gz  ubuntu@3.84.55.80:/home/ubuntu/"
         sh " echo 'Some Text' | ssh -o 'StrictHostKeyChecking no' -i $ssshke  ubuntu@44.201.172.55 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
       }
     }
