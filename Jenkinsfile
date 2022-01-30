@@ -22,12 +22,11 @@ pipeline {
             
     stage('Deploy') {
       steps {
-        sh "echo succsessszssfully created"
-        sh "whoami"
-        sh "ls -la"
-        sh " echo 'ismaeel haider Text' | ssh -o 'StrictHostKeyChecking no' -i $ssshke  ubuntu@44.201.172.55 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
+        sh "echo Installing remote directory --------------------------"
         sh "ssh -o 'StrictHostKeyChecking no' -i $ssshke  ubuntu@44.201.172.55 < command.txt"
+        sh "echo Copying artifact to remote host directory ----------------------" 
         sh " scp -i  $ssshke Node.tar.gz  ubuntu@44.201.172.55:/home/ubuntu/node-app/"
+        sh "echo Starting Node app on remote host ---------------------------------" 
         sh "ssh -o 'StrictHostKeyChecking no' -i $ssshke  ubuntu@44.201.172.55 < startNode.txt"
         
       }
