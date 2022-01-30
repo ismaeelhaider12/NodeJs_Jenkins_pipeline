@@ -18,11 +18,14 @@ pipeline {
     
             
     stage('Deploy') {
+      enviroment {
+        ssh_k = credentials("SSH_KEY")
+      }
       steps {
         sh "echo succsessszfully created"
         sh "whoami"
         sh "ls -la"
-        sh "scp -i '/home/ubuntu/key.pem' Node.tar.gz  ubuntu@3.84.55.80:/home/ubuntu/"
+        sh "scp -i $ssh_K Node.tar.gz  ubuntu@3.84.55.80:/home/ubuntu/"
       }
     }
   }
