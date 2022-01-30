@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  enviroment {
+  environment {
     ssh_k = credentials("SSH_KEY")
   }
   tools {nodejs "nodejs"}  
