@@ -21,7 +21,7 @@ pipeline {
       steps {
         sh "echo succsessszfully created"
         sh "whoami"
-        sh (script:"cat /home/ubuntu/key.pem")
+//         sh (script:"cat /home/ubuntu/key.pem")
         sh "ssh -i '/home/ubuntu/key.pem' ubuntu@3.84.55.80"
       }
     }
