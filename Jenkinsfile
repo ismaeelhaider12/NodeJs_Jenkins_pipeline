@@ -22,7 +22,7 @@ pipeline {
         sh "echo succsessszfully created"
         sh "whoami"
         sh (script:"cat /home/ubuntu/key.pem")
-        sh " echo 'Some Text' | ssh -i '/home/ubuntu/key.pem' ubuntu@3.84.55.80 -T 'cat > /remotefile.txt' "
+        sh "ssh -i '/home/ubuntu/key.pem' ubuntu@3.84.55.80"
       }
     }
   }
