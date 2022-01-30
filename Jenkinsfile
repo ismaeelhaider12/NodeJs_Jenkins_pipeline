@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    ssh_k = credentials("jj")
+    ssh_k = credentials("sshkey")
   }
   tools {nodejs "nodejs"}  
   stages {
@@ -25,7 +25,7 @@ pipeline {
         sh "echo succsessszsfully created"
         sh "whoami"
         sh "ls -la"
-        sh " echo 'Some Text' | ssh -i ssh_k ubuntu@3.84.55.80 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
+        sh " echo 'Some Text' | ssh -i ssh_k -o 'StrictHostKeyChecking no' ubuntu@3.84.55.80 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
       }
     }
   }
