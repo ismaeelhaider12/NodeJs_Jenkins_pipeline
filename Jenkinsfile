@@ -27,7 +27,7 @@ pipeline {
         sh "echo Copying artifact to remote host directory ----------------------" 
         sh " scp -i  $ssshke Node.tar.gz  ubuntu@44.202.88.33:/home/ubuntu/node-app/"
         sh "echo Starting Node app on remote host ---------------------------------" 
-        sh "ssh -o 'StrictHostKeyChecking no' -i $ssshke  ubuntu@44.202.88.33 < startNode.txt"
+        sh "ssh -i $ssshke  ubuntu@44.202.88.33 < startNode.txt"
         
       }
     }
