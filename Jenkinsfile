@@ -25,7 +25,7 @@ pipeline {
         sh "echo succsessszssfully created"
         sh "whoami"
         sh "ls -la"
-        sh " echo 'Some Text' | ssh -o StrictHostKeyChecking no -i ssshke  ubuntu@3.84.55.80 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
+        sh " echo 'Some Text' | ssh -o 'StrictHostKeyChecking' no -i $ssshke  ubuntu@3.84.55.80 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
       }
     }
   }
