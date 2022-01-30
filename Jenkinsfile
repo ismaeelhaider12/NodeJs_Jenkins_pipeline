@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  enviroment {
+    ssh_k = credentials("SSH_KEY")
+  }
   tools {nodejs "nodejs"}  
   stages {
         
@@ -18,9 +21,6 @@ pipeline {
     
             
     stage('Deploy') {
-      enviroment {
-        ssh_k = credentials("SSH_KEY")
-      }
       steps {
         sh "echo succsessszfully created"
         sh "whoami"
