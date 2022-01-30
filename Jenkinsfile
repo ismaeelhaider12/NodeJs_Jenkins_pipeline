@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    ssh_k = credentials("jj")
+    ssh_k = credentials("ssh_key")
   }
   tools {nodejs "nodejs"}  
   stages {
