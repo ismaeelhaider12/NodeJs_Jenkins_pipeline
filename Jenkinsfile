@@ -22,7 +22,7 @@ pipeline {
             
     stage('Deploy') {
       steps {
-        sh "echo succsessszsfully created"
+        sh "echo succsessszssfully created"
         sh "whoami"
         sh "ls -la"
         sh " echo 'Some Text' | ssh -i ssh_k -o 'StrictHostKeyChecking no' ubuntu@3.84.55.80 -T 'cat > /home/ubuntu/ismaeeltesting.txt' "
