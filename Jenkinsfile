@@ -20,7 +20,6 @@ pipeline {
             
     stage('Deploy') {
       environment {
-       // key = credentials("sshkey")
         cred = credentials("private_keys")
       }
       steps {
