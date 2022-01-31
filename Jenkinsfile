@@ -24,7 +24,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh "echo Installing remote directory --------------------------"
-        sh 'ssh -o "StrictHostKeyChecking no" -i $key  ubuntu@3.83.120.122 -T < setup_nvm_app_directory.txt'
+        sh 'ssh -e -o \x27StrictHostKeyChecking no\x27 -i $key  ubuntu@3.83.120.122 -T < setup_nvm_app_directory.txt'
         sh "echo Copying artifact to remote host directory ----------------------" 
         sh ('scp -i  $key Node.tar.gz  ubuntu@3.83.120.122:/home/ubuntu/node-app/')
         sh "echo Starting Node app on remote host ---------------------------------" 
