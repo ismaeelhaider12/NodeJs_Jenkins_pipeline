@@ -14,6 +14,7 @@ pipeline {
      
     stage('Build') {
       steps {
+         sh "npm install"
          sh "echo creating build artifacts ........... "
          sh 'tar czf Node.tar.gz node_modules index.js package.json'
       }
