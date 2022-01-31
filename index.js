@@ -5,7 +5,7 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send('Hello world this is node app practices with Jenkins successfully performed by Mr.Muhammad ismaeel haider')
+  response.send('Hello world this is node app practices with Jenkins successfully performed by Muhammad ismaeel haider')
 }) 
 
 app.listen(app.get('port'), function() {
