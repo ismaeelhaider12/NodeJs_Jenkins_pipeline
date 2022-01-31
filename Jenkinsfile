@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  environment {
-    key = credentials("sshkey")
-  }
   tools {nodejs "nodejs"}  
   stages {
         
@@ -22,6 +19,9 @@ pipeline {
     
             
     stage('Deploy') {
+      environment {
+        key = credentials("sshkey")
+      }
       steps {
         sh "echo Installing remote directory --------------------------"
         sh ('ssh -o \'StrictHostKeyChecking no\' -i $key  ubuntu@52.91.17.118 < setup_nvm_app_directory.txt')
