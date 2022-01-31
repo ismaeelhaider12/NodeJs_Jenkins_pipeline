@@ -22,7 +22,7 @@ pipeline {
                 steps {
                     withCredentials([file(credentialsId: 'sshkey', variable: 'keyfile')]) {
                     sh "echo Installling remote directory --------------------------"
-                    sh ('ssh -o \'StrictHostKeyChecking no\' ubuntu@52.91.17.118 < setup_nvm_app_directory.txt')
+                    sh ('ssh -o \'StrictHostKeyChecking no\' $keyfile ubuntu@52.91.17.118 < setup_nvm_app_directory.txt')
                     sh "echo Copying artifact to remote host directory ----------------------" 
                     sh ('scp -i  $keyfile Node.tar.gz  ubuntu@52.91.17.118:/home/ubuntu/node-app/')
                     sh "echo Starting Node app on remote host ---------------------------------" 
