@@ -17,17 +17,18 @@ pipeline {
       }
     }  
 
-    withCredentials([sshUserPrivateKey(credentialsId: "sshkey", keyFileVariable: 'keyfile')]) {
+    
         stage('Deploy') {
-            steps {
-                sh "echo Installling remote directory --------------------------"
-                sh ('ssh -o \'StrictHostKeyChecking no\' -i ${keyfile} ubuntu@52.91.17.118 < setup_nvm_app_directory.txt')
-                sh "echo Copying artifact to remote host directory ----------------------" 
-                sh ('scp -i  ${keyfile} Node.tar.gz ubuntu@52.91.17.118:/home/ubuntu/node-app/')
-                sh "echo Starting Node app on remote host ---------------------------------" 
-                sh ('ssh -i ${keyfile}  ubuntu@52.91.17.118 < startNode.txt')
-                
-            }
+            withCredentials([sshUserPrivateKey(credentialsId: "sshkey", keyFileVariable: 'keyfile')]) {
+                steps {
+                    sh "echo Installling remote directory --------------------------"
+                    sh ('ssh -o \'StrictHostKeyChecking no\' -i $keyfile ubuntu@52.91.17.118 < setup_nvm_app_directory.txt')
+                    sh "echo Copying artifact to remote host directory ----------------------" 
+                    sh ('scp -i  $keyfile Node.tar.gz  ubuntu@52.91.17.118:/home/ubuntu/node-app/')
+                    sh "echo Starting Node app on remote host ---------------------------------" 
+                    sh ('ssh -i $keyfile  ubuntu@52.91.17.118 < startNode.txt')
+                    
+                }
         }
     }
 
