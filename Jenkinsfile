@@ -19,8 +19,8 @@ pipeline {
 
     
         stage('Deploy') {
-            withCredentials([sshUserPrivateKey(credentialsId: "sshkey", keyFileVariable: 'keyfile')]) {
                 steps {
+                    withCredentials([sshUserPrivateKey(credentialsId: "sshkey", keyFileVariable: 'keyfile')]) {
                     sh "echo Installling remote directory --------------------------"
                     sh ('ssh -o \'StrictHostKeyChecking no\' -i $keyfile ubuntu@52.91.17.118 < setup_nvm_app_directory.txt')
                     sh "echo Copying artifact to remote host directory ----------------------" 
