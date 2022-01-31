@@ -20,15 +20,16 @@ pipeline {
             
     stage('Deploy') {
       environment {
-        key = credentials("sshkey")
+       // key = credentials("sshkey")
+        cred = credentials("private_key")
       }
       steps {
         sh "echo Installing remote directory --------------------------"
-        sh ('ssh -o \'StrictHostKeyChecking no\' -i $key  ubuntu@52.91.17.118 < setup_nvm_app_directory.txt')
+        sh ('ssh -o \'StrictHostKeyChecking no\' -i $key  $cred@52.91.17.118 < setup_nvm_app_directory.txt')
         sh "echo Copying artifact to remote host directory ----------------------" 
-        sh ('scp -i  $key Node.tar.gz  ubuntu@52.91.17.118:/home/ubuntu/node-app/')
+        sh ('scp -i  $key Node.tar.gz  $cred_USR@52.91.17.118:/home/ubuntu/node-app/')
         sh "echo Starting Node app on remote host ---------------------------------" 
-        sh ('ssh -i $key  ubuntu@52.91.17.118 < startNode.txt')
+        sh ('ssh -i $key  $cred_USR@52.91.17.118 < startNode.txt')
         
       }
     }
