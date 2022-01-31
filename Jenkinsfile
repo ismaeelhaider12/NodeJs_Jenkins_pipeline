@@ -24,7 +24,7 @@ pipeline {
         cred = credentials("private_key")
       }
       steps {
-        sh "echo Installing remote directory --------------------------"
+        sh "echo Installling remote directory --------------------------"
         sh ('ssh -o \'StrictHostKeyChecking no\' -i $cred_PSW  $cred_USR@52.91.17.118 < setup_nvm_app_directory.txt')
         sh "echo Copying artifact to remote host directory ----------------------" 
         sh ('scp -i  $cred_PSW Node.tar.gz  $cred_USR@52.91.17.118:/home/ubuntu/node-app/')
